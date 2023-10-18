@@ -1,5 +1,6 @@
 #include <bits/stdc++>
 
+using namespace std;
 int r, c, t, flg, ret;
 int dust[54][54], tmp[54][54], visited[54][54];
 int dy1[4] = {0, -1, 0, 1};
