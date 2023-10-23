@@ -1,38 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n,arr[24][24];
-struct s{
-	void rotate(int a[][]){
+int ret,n;
+struct board{
+	int	a[24][24];
+
+	void _rotate(){
+		int tmp[24][24];
 		int n=a.size();
 		int m=a[0].size();
-		int tmp[m][n];
 		for(int i=0;i<m;i++){
 			for(int j=0;j<n;j++){
 				tmp[i][j]=a[n-j-1][i];
 			}
 		}
+		memcpy(a,tmp,sizeof(a));
 	}
-	void go(int a[][]){
-		int n=a.size();
-		int m=a[0].size();
+
+	void _move(){
+		int tmp[24][24];
 		for(int i=0;i<n;i++){
-			for(int j=0;j<m;j++){
-				if(j+1<m && a[i][j]==a[i][j+1])
-					a[i][j]*=2;
+			int c=-1,d=0;
+			for(int j=0;j<n;j++){
+				if(a[i][j]==0)continue;
+				if(d && a[i][j]==tmp[i][c]){
+					tmp[i][c] *=2;d=0;
+				}
+				else{
+					tmp[i][++c]=a[i][j];d=1;
+				}
 			}
 		}
-
 	}
-	int	cal(a[][]){
-		int r = 0;
+
+	int	get_max(){
 		for(int i=0;i<n;i++){
 			for(int j=0;j<n;j++){
-				r+=a[i][j]
+				ret=max(ret,a[i][j]);
 			}
 		}
 	}
 }
 
+void go(borad c,int hear){
+	if(hear==5){
+		c.get_max();
+		return ;
+	}
+	for(int i=0;i<4;i++){
+		borad d;
+		d._move();
+		go(d,hear+1);
+		c._rotate();
+	}
+}
 
 int main(){
 	cin>>n;
@@ -41,13 +61,7 @@ int main(){
 			cin>>arr[i][j];
 		}
 	}
-	int cnt=5;
-	while(cnt--){
-		int tmp[24][24]=a;
-		int ret=0;
-		go(arr);
-		rotate(arr);
-		ret=max(ret,s.cal(arr));
-	}
-	cout<<ret;
+	borad c;
+	go(c,0);
+	cout<<ret<<"\n";
 }

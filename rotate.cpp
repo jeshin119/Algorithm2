@@ -3,16 +3,11 @@ using namespace std;
 int main(){
 	//one dimentional
 	//1.using rotate
-<<<<<<< HEAD
 	int arr1[5] = {1,2,3,4,5};
-=======
-	int arr[5] = {1,2,3,4,5};
->>>>>>> d820128bafa75fef9d74fd19b8a8b5a905dbd6e6
 	rotate(arr,arr+1,arr+5);
 	for(int i=0;i<5;i++){
 		printf("%d\t",arr[i]);
 	}
-<<<<<<< HEAD
 	cout<<"\n";
 	//2.implement
 	int arr2[5] = {1,2,3,4,5};
@@ -58,8 +53,4 @@ int main(){
 		}
 		cout<<"\n";
 	}
-=======
-	//2.implement
-
->>>>>>> d820128bafa75fef9d74fd19b8a8b5a905dbd6e6
 }
