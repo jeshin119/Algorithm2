@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 //#BOJ 17144 url : 
+=======
+>>>>>>> ba197d0 (5_K,5_L added)
 #include <bits/stdc++.h>
 using namespace std;
 int r,c,t,flg,ret;

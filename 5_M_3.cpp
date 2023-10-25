@@ -1,22 +1,21 @@
 #include <bits/stdc++.h>
+using namespace std;
 int n,ret;
-struct borad{
+
+struct board{
 	int a[24][24];
-	int rotate(){
+
+	void rotate(){
 		int tmp[24][24];
-		int p=a.size();
-		int q=a[0].size();
-		for(int i=0;i<q;i++){
-			for(int j=0;j<p;j++){
+		for(int i=0;i<n;i++){
+			for(int j=0;j<n;j++){
 				tmp[i][j]=a[n-j-1][i];
 			}
 		}
-		memcpy(tmp,a,sizeof(a));
+		memcpy(a,tmp,sizeof(a));
 	}
 
-	int go(){
-		int n=a.size();
-		int m=a[0].size();
+	void go(){
 		int tmp[24][24];
 		for(int i=0;i<n;i++){
 			int d=0,c=-1;
@@ -29,29 +28,30 @@ struct borad{
 					tmp[i][++c]=a[i][j];d=1;
 				}
 			}
+			for(c++;c<n;c++)tmp[i][c]=0;
 		}
-		memcpy(tmp,a,sizeof(a));
-	}
+		memcpy(a,tmp,sizeof(a));
+	};
 
-	int get_max(){
+	void get_max(){
 		for(int i=0;i<n;i++){
 			for(int j=0;j<n;j++){
 				ret=max(ret,a[i][j]);
 			}
 		}
-	}
-}
+	};
+};
 
-int ggo(borad b,int start){
+void ggo(board b,int start){
 	if(start==5){
-		ret=b.get_max();
+		b.get_max();
 		return ;
 	}
 	for(int i=0;i<4;i++){
-		borad c=b;
-		b.go();
+		board c=b;
+		c.go();
 		ggo(c,start+1);
-		c.rotate();
+		b.rotate();
 	}
 }
 
