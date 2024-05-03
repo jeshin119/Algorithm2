@@ -1,0 +1,22 @@
+Hash table
+
+when inserting,erasing,finding,updating, all of these is O(1)
+기억력퀴즈에서는 카드 16자리를 모두 외울필욘 없지. 일부만알아도가능. 그래서 일부를 예(4자리) 를 가지고 배열을만들면 케이스마다 시간복잡도가 1이다.
+이런 테이블을 만들기 위해서는 해쉬함수가 필요. 해쉬함수는 기존 구별번호를 테이블의 인덱스로 매핑하는 함수.
+ 
+충돌회피. 만약 매핑한 인덱스가 같다면? 그 둘을 어떻게 비교하는지?
+
+Chaining과 open addressing으로 나뉨.
+
+Chaining은 테이블 인덱스마다 연결리스트를 두는 것으로 충돌을 회피한다.
+
+Open addressing은 밀려서 작성하는 것이다. 3333에 값이 이미 있다면 3333으로 끝나는 다른 번호가 왔을 때 3334에 기록하고 또 다른 3333으로 끝나는 번호가 오면 또다시 오른쪽으로 밀려서 기록하는 것이다.
+이런 방법이 open addressing의 linear probing(탐사) 장점으로는 Cache hit이 높지만 clustering이 높다. 다른 probing으로는 Quadratic probing이 있고 이건 1,4,9 이렇게 이동하는 것.
+probing말고 다른 open addressing방법으로는 double hassing이 있음. 만약 1111 ~~ 3333과 2222 ~~ 3333이 오면 3333에서 1111떨어진 곳에 첫번째를 위치시키고 같은 방법으로 두번째를 위치시키는 것. clustering이 낮아 좋으나 cache hit rate이 낮다.
+
+hash1
+boj7785
+이분탐색, 투포인터로 가능.시도 필요.
+내림차순으로 sotring어떻게? sort함수 배열, vector,queue같은 것들만 가능. 세번쨰인자로 사용자정의함수 줄 수 있음.
+알고리즘문제풀이에서는 객체를 잘 사용안해서 괜찮지만 만약 객체를 정렬해야한다면? 
+dq를 사용하든 vector을 사용하든 메모리 크기와 시간 거의 비슷.
