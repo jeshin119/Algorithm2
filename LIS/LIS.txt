@@ -1,0 +1,2 @@
+Longest Increase Sequence
+숫자를 도식화
