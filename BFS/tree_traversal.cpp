@@ -32,15 +32,15 @@ void inOrder(int here){
 	if (visited[here])
 		return ;
 	if (adj[here].size() == 1){
-		postOrder(adj[here][0]);
+		inOrder(adj[here][0]);
 		visited[here]=true;
 		cout<<here<<" ";
 	}
 	else if (adj[here].size() == 2){
-		postOrder(adj[here][0]);
+		inOrder(adj[here][0]);
 		visited[here]=true;
 		cout<<here<<" ";
-		postOrder(adj[here][1]);
+		inOrder(adj[here][1]);
 	}
 	else{
 		visited[here]=true;
