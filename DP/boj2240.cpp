@@ -1,3 +1,4 @@
+//자두나무
 #include <bits/stdc++.h>
 using namespace std;
 int t,w,b[1004],dp[1004][2][34];
