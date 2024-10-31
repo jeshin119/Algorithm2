@@ -1,4 +1,4 @@
-//BOJ 1463.
+//BOJ 1463.//1로 만들기
 #include <iostream>
 #include <algorithm>
 using namespace std;
