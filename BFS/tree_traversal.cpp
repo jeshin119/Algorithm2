@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std; 
 vector<int> adj[1004]; 
 int visited[1004];

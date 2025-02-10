@@ -1,23 +1,19 @@
-#include <iostream>
-#include <algorithm>
+//boj 2579계단오르기
+#include <bits/stdc++.h>
 using namespace std;
-int n,a[305],d[305],m;
+int n,f[304],dp[304][2];
 int main(){
-	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-	cin>>n;
-	for(int i=0;i<n;i++){
-		cin>>a[i];
-		m+=a[i];
-	}
-	if (n<=1){
-		cout<<m;
-		return 0;
-	}
-	d[0]=a[0];
-	d[1]=a[1];
-	d[2]=a[2];
-	for(int i=3;i<n;i++){
-		d[i]=min(d[i-2],d[i-3])+a[i];
-	}
-	cout << m-min(d[n-2],d[n-3]);
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>f[i];
+    }
+    dp[0][0]=f[0];
+    dp[0][1]=0;
+    dp[1][0]=f[1];
+    dp[1][1]=f[0]+f[1];
+    for(int i=2;i<n;i++){
+        dp[i][0] = max(dp[i-2][0], dp[i-2][1]) + f[i];
+        dp[i][1] = dp[i-1][0] + f[i];
+    }
+    cout<<max(dp[n-1][0],dp[n-1][1]);
 }

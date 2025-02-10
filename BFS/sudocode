@@ -1,6 +1,3 @@
-#include <vector>
-#include <deque>
-using namespace std;
 //sudo code
 /*
 BFS(G,u){
@@ -38,7 +35,3 @@ BFS(G,u){
 	}
 }
 */
-
-int main(){
-
-}

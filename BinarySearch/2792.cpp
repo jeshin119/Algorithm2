@@ -1,4 +1,6 @@
 //boj 2792 보석상자
+//생각치도 못함 binarysearch를.
+
 #include <bits/stdc++.h>
 using namespace std;
 int n,m,ret;
