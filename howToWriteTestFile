@@ -1,0 +1,16 @@
+표준입력으로 사용자입력을 받는 알고리즘 테스트 케이스 작성법
+
+1. input.txt에 내용을 작성하고 redirection한다
+./a.out < input.txt
+
+2. echo 를 사용해서 프로그램에 파이프로 넘겨준다
+echo -e "3\n2 4 8\n2 2 3\n2 1 3\n2 1 2" | ./a.out
+
+3. heredoc을 사용해서 넘겨준다
+./a.out << EOF
+3
+2 4 8
+2 2 3
+2 1 3
+2 1 2
+EOF
