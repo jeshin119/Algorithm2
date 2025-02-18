@@ -1,5 +1,4 @@
-#include<algorithm> 
-#include<cstdio>   
+#include <bits/stdc++.h>
 using namespace std; 
 int n, w, px[1003], py[1003], dp[1003][1003], y, x; 
 int d(int a, int b){
@@ -34,4 +33,10 @@ int main(){
     printf("%d\n", getSum(0, 1));  
     solve();
     return 0;
+}
+void test(int &hi){
+    cout<<hi;
+}
+void test2(int (&hi)[4]){
+    cout<<hi[0];
 }
