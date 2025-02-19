@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 int n,w[17][17],visited,INF=1e9,d[17][1<<17];
 int go(int here, int visited){
@@ -6,8 +7,10 @@ int go(int here, int visited){
         return w[here][0] ? w[here][0] : INF;
     }
     int& ret=d[here][visited];
-    if (~ret)
+    if (~ret){
+        printf("dp[%d][%d]\n",here,visited);
         return (ret);
+    }
     ret=INF;
     for(int i=0;i<n;i++){
         if (visited&(1<<i))
