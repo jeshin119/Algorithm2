@@ -5,13 +5,13 @@ const int INF = 987654321;
 using namespace std; 
 int n, dp[MAX_N][1 << MAX_N], dist[MAX_N][MAX_N];
 int tsp(int here, int visited){
-	cout<<"here: "<<here<<"\n";
+    printf("tsp(%d, %d)\n",here,visited);
     if(visited == (1 << n) - 1){
         return dist[here][0] ? dist[here][0] : INF;
     }
     int &ret = dp[here][visited];
     if(ret != -1){
-		cout<<"here: "<<here<<" dp[here][visited]: "<<ret<<"\n";
+        // printf("dp[%d][%d]\n",here,visited);
 		return ret;
 	} 
     ret = INF;
@@ -34,5 +34,11 @@ int main() {
     }
     memset(dp, -1, sizeof(dp));
     cout << tsp(0, 1) << '\n';
+    for(int i=0;i<n;i++){
+        for(int j=1;j<(1<<n);j++){
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
     return 0;
 }
