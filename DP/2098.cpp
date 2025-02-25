@@ -1,5 +1,6 @@
 //외판원순회
 #include <iostream>
+#include <stdlib.h>
 #define MAX_N 16
 const int INF = 987654321;
 using namespace std; 
